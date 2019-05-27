@@ -28,7 +28,7 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
             manager.startDeviceMotionUpdates(to: .main) {
                 [weak self] (data: CMDeviceMotion?, error: Error?) in
                 if let gravity = data?.gravity {
-                    let rotation = atan2(gravity.x, gravity.y) - M_PI
+                    let rotation = atan2(gravity.x, gravity.y) - Double.pi
                     self?.imageView.transform = CGAffineTransform(rotationAngle: CGFloat(rotation))
                 }
             }
